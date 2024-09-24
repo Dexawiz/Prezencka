@@ -9,6 +9,6 @@ public class Student {
     private Long id;
     private String name;
     private String surname;
-    private Gender gender;
+    private Sex sex;
     private LocalDate birthDate;
 }
