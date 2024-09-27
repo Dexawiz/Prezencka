@@ -1,5 +1,6 @@
 package sk.upjs.ics;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
@@ -55,8 +56,20 @@ class AttendanceServiceTest {
         attendance3.setAttendees(Set.of(janka, danka, ferko));
 
         var service = new AttendanceService(List.of(attendance1, attendance2, attendance3));
-        var got = service.averageNumberOfStudents(paz1c);
+        var got = service.averageNumberOfStudents(paz1c.getName());
 
         assertEquals(2, got);
+    }
+
+    @org.junit.jupiter.api.Test
+    void fromResources() {
+        AttendanceService service = null;
+        try {
+            service = AttendanceService.fromResources();
+        } catch (IOException e) {
+            fail(e);
+        }
+
+        assertNotEquals(0, service.averageNumberOfStudents("PAZ1c"));
     }
 }
