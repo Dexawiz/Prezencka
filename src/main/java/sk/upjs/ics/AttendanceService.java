@@ -26,6 +26,33 @@ public class AttendanceService {
                 }
 
                 var parts = line.splitWithDelimiters(",", 0);
+                // Instead of `split` we use `splitWithDelimiters`, so commas will also be included in the result.
+                // This is useful because some fields can be empty, hence they won't be ignored
+
+                // example 1: split("Janko,Hrasko,M,4") -> parts["Janko", "Hrasko", "M", "4"]
+                //      where name:    parts[0] == "Janko",
+                //            surname: parts[1] == "Hrasko",
+                //            gender:  parts[2] == "M",
+                //            id:      parts[3] == "4"
+
+                // example 2: splitWithDelimiters("Janko,Hrasko,M,4", 0) -> parts["Janko", ",", "Hrasko", ",", "M", ",", "4"]
+                //      where name:    parts[0] == "Janko",
+                //            surname: parts[2] == "Hrasko",
+                //            gender:  parts[4] == "M",
+                //            id:      parts[6] == "4"
+
+                // example 3: split("Ferko,Kukurica,,4") -> parts["Ferko", "Kukurica", "4"]
+                //      where name:    parts[0] == "Ferko",
+                //            surname: parts[1] == "Kukurica",
+                //            gender:  parts[2] == "4", // this is not supposed to be gender
+                //            id:      parts[3] == IndexOutOfBoundsException
+
+                // example 4: splitWithDelimiters("Ferko,Kukurica,,4", 0) -> parts["Ferko", ",", "Kukurica", ",", "4"]
+                //      where name:    parts[0] == "Ferko",
+                //            surname: parts[2] == "Kukurica",
+                //            gender:  parts[4] == "", // this will be UNKNOWN gender
+                //            id:      parts[6] == 4
+
                 var student = new Student();
                 student.setName(parts[0]);
                 student.setSurname(parts[2]);
