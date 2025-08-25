@@ -1,6 +1,6 @@
 # Attender
 
-Demo projekt z cvičení predmetu PAZ1c v akademickom roku 2024/2025.
+Demo projekt z cvičení predmetu PAZ1c v akademickom roku 2025/2026.
 
 Hlavná vetva (master) obsahuje kód z posledného cvičenia.
 
