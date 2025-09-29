@@ -42,5 +42,7 @@ class StudentServiceTest {
 
         assertEquals(spravnyVysledok, vysledok);
 
+
+
     }
 }
