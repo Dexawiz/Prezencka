@@ -5,6 +5,10 @@ import java.util.Set;
 public class StudentService {
     private Set<Student> student;
 
+    public StudentService(Set<Student> student) {
+        this.student = student;
+    }
+
     public RatioOfGenders ratio(){
         int countMan = 0;
         int countWoman = 0;
