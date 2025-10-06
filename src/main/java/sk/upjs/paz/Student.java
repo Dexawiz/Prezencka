@@ -8,8 +8,8 @@ import java.time.LocalDate;
 public record Student(Long id,
                       String name,
                       String surname,
-                      Gender sex,
-                      LocalDate dob)
+                      Gender gender,
+                      LocalDate birthdate)
 {
 
 

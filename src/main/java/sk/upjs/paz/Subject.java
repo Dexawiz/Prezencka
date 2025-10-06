@@ -7,6 +7,6 @@ import java.util.Set;
 @With
 public record Subject(Long id,
                       String name,
-                      int yearOfStudies,
+                      int year,
                       Set<Student> students) {
 }
