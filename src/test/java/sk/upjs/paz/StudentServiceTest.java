@@ -41,8 +41,16 @@ class StudentServiceTest {
                 1, 1, 1);
 
         assertEquals(spravnyVysledok, vysledok);
-
-
-
     }
+
+    @Test
+    void testRatio_EmptySet_ReturnsZeros() {
+        var studentService = new StudentService(Set.of());
+        var actual = studentService.ratio();
+
+        var expected = new RatioOfGenders(0, 0, 0);
+        assertEquals(expected, actual);
+    }
+
+    
 }
