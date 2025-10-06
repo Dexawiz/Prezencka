@@ -23,10 +23,11 @@ public class AttenderAppController {
         RatioOfGenders r = service.ratio();
 
         String text = String.format(
-                "Мужчины: %d, Женщины: %d, Мутанты: %d%nДоля мужчин: %.2f, Доля женщин: %.2f",
+                "Мужчины: %d, Женщины: %d, Мутанты: %d%nДоля мужчин: %.2f, Доля женщин: %.2f,%n Доля мутантов: %.2f =)",
                 r.man(), r.woman(), r.mutant(),
-                r.ratioToMenFromWomen(r.man(), r.woman(), r.mutant()),
-                r.ratioToWomenToMen(r.man(), r.woman(), r.mutant())
+                r.ratioToMen(r.man(), r.woman(), r.mutant()),
+                r.ratioToWomen(r.man(), r.woman(), r.mutant()),
+                r.ratioToMutants(r.man(), r.woman(), r.mutant())
         );
 
 
